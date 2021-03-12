@@ -2,7 +2,6 @@
 
 import investpy
 import datetime
-import pprint
 import json
 import pandas as pd
 
@@ -18,11 +17,11 @@ def getStocks(stock_file='stocks.json'):
 
 if __name__ == "__main__":
 
-    stocks = getStocks()
+    conf = getStocks()
 
-    for stk in stocks:
+    for stk in conf['stocks']:
         df = investpy.get_stock_historical_data(stock=stk['code'],
-                                                country=country,
+                                                country=conf['country'],
                                                 from_date=stk['date'],
                                                 to_date=today)
 
@@ -31,7 +30,7 @@ if __name__ == "__main__":
         stk_min = df["Close"].min()
         df_temp = pd.concat([df.head(1), df.tail(1)])
 
-        print("\n****\n{}".format(stk['code']))
+        print("\n******\n{}\n".format(stk['code']))
         print("Cost: {} TRY".format(stk['price']))
         print("Mean: {} TRY".format(round(stk_mean, 2)))
         print("Max: {} TRY".format(stk_max))
