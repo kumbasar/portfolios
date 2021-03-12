@@ -6,6 +6,7 @@ import json
 from numpy.core.numeric import True_
 import pandas as pd
 import matplotlib.pyplot as plt
+from tabulate import tabulate
 
 country = 'Turkey'
 date_frmt = '%d/%m/%Y'
@@ -37,10 +38,13 @@ if __name__ == "__main__":
         df_temp = pd.concat([df.head(1), df.tail(1)])
 
         print("\n******\n{}\n".format(stk['code']))
-        print("Cost: {} TRY".format(stk['price']))
-        print("Mean: {} TRY".format(round(stk_mean, 2)))
-        print("Max: {} TRY".format(stk_max))
-        print("Min: {} TRY\n".format(stk_min))
+        print("{:>10} {:<5} TRY".format("Cost:", stk['price']))
+        print("{:>10} {:<5} TRY".format("Last:", df['Close'].iloc[-1]))
+        print("{:>10} {:<5} TRY".format("Profit:", round(df['Close'].iloc[-1]-stk['price'], 2)))
+        print("{:>10} {:<5}".format("Profit %:", round(100*(df['Close'].iloc[-1]/stk['price']-1), 2)))
+        print("{:>10} {:<5} TRY".format("Mean:", round(stk_mean, 2)))
+        print("{:>10} {:<5} TRY".format("Max:", stk_max))
+        print("{:>10} {:<5} TRY\n".format("Min:", stk_min))
         print(df_temp)
 
         ax = fig.add_subplot(count)

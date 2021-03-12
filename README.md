@@ -1,4 +1,4 @@
-# BIST Portfolios
+# Stock Portfolios
 
 ## Install requirements
 
@@ -7,6 +7,8 @@ pip3 install -r requirements.txt
 ```
 
 ## Usage
+
+Update `stocks.json` with your portfolios.
 
 ```bash
 ./main.py
@@ -19,10 +21,13 @@ Sampe output:
 ******
 GUBRF
 
-Cost: 85.3 TRY
-Mean: 80.62 TRY
-Max: 82.55 TRY
-Min: 79.65 TRY
+     Cost: 85.3  TRY
+     Last: 79.65 TRY
+   Profit: -5.65 TRY
+ Profit %: -6.62
+     Mean: 80.62 TRY
+      Max: 82.55 TRY
+      Min: 79.65 TRY
 
              Open   High    Low  Close    Volume Currency
 Date                                                     
@@ -32,10 +37,13 @@ Date
 ******
 SISE
 
-Cost: 7.1 TRY
-Mean: 7.61 TRY
-Max: 7.73 TRY
-Min: 7.13 TRY
+     Cost: 7.1   TRY
+     Last: 7.66  TRY
+   Profit: 0.56  TRY
+ Profit %: 7.89 
+     Mean: 7.61  TRY
+      Max: 7.73  TRY
+      Min: 7.13  TRY
 
             Open  High   Low  Close     Volume Currency
 Date                                                   
