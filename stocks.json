@@ -3,12 +3,12 @@
     "stocks":[ 
         {
             "code": "GUBRF", 
-            "date": "10/03/2021",
+            "purchase_date": "10/03/2021",
             "price": 85.3
         },
         {
             "code": "SISE", 
-            "date": "26/02/2021",
+            "purchase_date": "26/02/2021",
             "price": 7.1
         }   
     ]

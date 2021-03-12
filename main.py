@@ -29,23 +29,22 @@ if __name__ == "__main__":
     for stk in conf['stocks']:
         df = investpy.get_stock_historical_data(stock=stk['code'],
                                                 country=conf['country'],
-                                                from_date=stk['date'],
+                                                from_date=stk['purchase_date'],
                                                 to_date=today)
 
         stk_mean = df["Close"].mean()
         stk_max = df["Close"].max()
         stk_min = df["Close"].min()
-        df_temp = pd.concat([df.head(1), df.tail(1)])
 
-        print("\n******\n{}\n".format(stk['code']))
+        print("\n******\nStock Code: {}\n".format(stk['code']))
         print("{:>10} {:<5} TRY".format("Cost:", stk['price']))
-        print("{:>10} {:<5} TRY".format("Last:", df['Close'].iloc[-1]))
-        print("{:>10} {:<5} TRY".format("Profit:", round(df['Close'].iloc[-1]-stk['price'], 2)))
-        print("{:>10} {:<5}".format("Profit %:", round(100*(df['Close'].iloc[-1]/stk['price']-1), 2)))
+        print("{:>10} {:<5} TRY".format("Current:", df['Close'].iloc[-1]))
+        print("{:>10} {:<5} TRY".format("Gain:", round(df['Close'].iloc[-1]-stk['price'], 2)))
+        print("{:>10} {:<5}".format("Gain %:", round(100*(df['Close'].iloc[-1]/stk['price']-1), 2)))
         print("{:>10} {:<5} TRY".format("Mean:", round(stk_mean, 2)))
         print("{:>10} {:<5} TRY".format("Max:", stk_max))
         print("{:>10} {:<5} TRY\n".format("Min:", stk_min))
-        print(df_temp)
+        print(pd.concat([df.head(1), df.tail(1)]))
 
         ax = fig.add_subplot(count)
         df.plot(y='Close', ylabel='Price', title=stk['code'], grid=True, legend=False, ax=ax)
