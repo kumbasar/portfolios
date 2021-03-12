@@ -3,7 +3,9 @@
 import investpy
 import datetime
 import json
+from numpy.core.numeric import True_
 import pandas as pd
+import matplotlib.pyplot as plt
 
 country = 'Turkey'
 date_frmt = '%d/%m/%Y'
@@ -18,6 +20,10 @@ def getStocks(stock_file='stocks.json'):
 if __name__ == "__main__":
 
     conf = getStocks()
+
+    fig = plt.figure()
+
+    count = 211
 
     for stk in conf['stocks']:
         df = investpy.get_stock_historical_data(stock=stk['code'],
@@ -36,3 +42,9 @@ if __name__ == "__main__":
         print("Max: {} TRY".format(stk_max))
         print("Min: {} TRY\n".format(stk_min))
         print(df_temp)
+
+        ax = fig.add_subplot(count)
+        df.plot(y='Close', ylabel='Price', title=stk['code'], grid=True, legend=False, ax=ax)
+        count += 1
+
+    plt.show()
