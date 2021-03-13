@@ -1,5 +1,6 @@
 {
     "country": "Turkey",
+    "index": "BIST 100",
     "stocks":[ 
         {
             "code": "GUBRF", 
