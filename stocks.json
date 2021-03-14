@@ -11,6 +11,11 @@
             "code": "SISE", 
             "purchase_date": "26/02/2021",
             "price": 7.1
-        }   
+        },
+        {
+            "code": "TCELL", 
+            "purchase_date": "31/12/2020",
+            "price": 16.340
+        } 
     ]
 }
