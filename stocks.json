@@ -16,6 +16,11 @@
             "code": "TCELL", 
             "purchase_date": "31/12/2020",
             "price": 16.340
-        } 
+        },
+        {
+            "code": "GARAN", 
+            "purchase_date": "15/03/2021",
+            "price": 8.82
+        }
     ]
 }
